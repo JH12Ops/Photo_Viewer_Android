@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: Adapter
 
+    private var requestedPermission = permission.READ_MEDIA_IMAGES;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPermission(): Boolean {
-        val result = ContextCompat.checkSelfPermission(applicationContext, permission.READ_EXTERNAL_STORAGE)
+        val result = ContextCompat.checkSelfPermission(applicationContext, requestedPermission)
         return result == PackageManager.PERMISSION_GRANTED
     }
 
@@ -54,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
             this,
-            arrayOf(permission.READ_EXTERNAL_STORAGE),
+            arrayOf(requestedPermission),
             PERMISSION_REQUEST_CODE
         )
     }
@@ -100,10 +102,10 @@ class MainActivity : AppCompatActivity() {
                 if (grantResults.isNotEmpty()) {
                     val storageAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED
                     if (storageAccepted) {
-                        Toast.makeText(this, "Permissions Granted..", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Permissions Granted...", Toast.LENGTH_SHORT).show()
                         imagePath
                     } else {
-                        Toast.makeText(this, "Permissions denied, Permissions are required to use the app..", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Permissions denied, Permissions are required to use the app...", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
