@@ -9,7 +9,6 @@ appcompat = "1.6.1"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
-googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "21.0.1"
 firebaseDatabase = "21.0.0"
 navigationFragmentKtx = "2.8.9"
@@ -32,5 +31,4 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 
